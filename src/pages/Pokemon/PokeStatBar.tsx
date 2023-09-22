@@ -61,6 +61,10 @@ interface PokeStatsProps {
   statValue: number
 }
 
+// Hopefully the links above are enough to explain what's going on here
+// But if it isn't -
+// This calculates how "strong" a pokemons base stat is compared to it's minimum and maximum values
+// We take the midpoint between the min and max value as a benchmark.
 function PokeStatBar(props: PokeStatsProps) {
   const { name, statValue } = props;
   const [strengthValue, minValue, maxValue] = strength(name, statValue);

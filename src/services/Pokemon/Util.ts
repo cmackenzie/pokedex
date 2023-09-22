@@ -6,8 +6,10 @@ import {
 import { EvolutionChain, EvolutionLink } from './Model';
 import { OFFICIAL_ARTWORK_URL } from '../../constants';
 
+// Helper function that does a simple text replace with a pokemon id for a working artwork url
 export const getArtworkUrl = (id:string) => OFFICIAL_ARTWORK_URL.replace('[id]', id);
 
+// Helper function that extracts the sprite urls and throws away the version sprites (sadge)
 export const extractSprites = (spriteInfo: SpriteInfo) => {
 
   // filtering out versions here, theres too much to show, only show the good stuff
@@ -32,6 +34,8 @@ export const extractSprites = (spriteInfo: SpriteInfo) => {
   return sprites;
 };
 
+// Recursive method that processes the nested evolution chain
+// and returns only the data we care about
 const processChain = (chain: EvolutionChain, rawLink:ApiEvolutionLink) => {
   chain.pokemonInChain++;
 
@@ -57,6 +61,8 @@ const processChain = (chain: EvolutionChain, rawLink:ApiEvolutionLink) => {
   return newLink;
 };
 
+// Grabs the relevant evolution data from the nested evolution data
+// Keeps track of the number of pokemon are involved in a chain
 export const extractEvolutionChain = (evolutionChain: ApiEvolutionChain) => {
   const chain:EvolutionChain = {
     pokemonInChain: 0,

@@ -54,6 +54,8 @@ interface PokeEvolutionTriggersProps {
   }[]
 }
 
+// This is responsible for displaying and formatting the details around an evolution
+// Example Level up > Level 16 and has to be night time
 function PokeEvolutionTriggers(props: PokeEvolutionTriggersProps) {
   const { triggers } = props;
 

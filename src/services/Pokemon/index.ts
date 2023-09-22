@@ -3,7 +3,11 @@ import { PokemonInfoFull, PokemonInfo } from './Model';
 import { ServiceResourceResponse, ServicePagedResourceResponse } from '../Model';
 import { extractEvolutionChain, extractSprites, getArtworkUrl } from './Util';
 
+// Business logic for the Pokemon API
 class PokemonService {
+  // Look up a pokemon based on either id or it's name
+  // Also grab it's species and evolution information
+  // This is used primarly (solely) for the pokemon view page
   async getPokemon(idOrName: string):Promise<ServiceResourceResponse<PokemonInfoFull>> {
     if(!idOrName) {
       return { resource: null };
@@ -11,11 +15,13 @@ class PokemonService {
 
     const normalizedId = idOrName.toLowerCase();
     const { item: apiPokemon } = await PokemonApi.getPokemonByIdOrName({ id: normalizedId });
+    // If there is no pokemon, give up
     if(apiPokemon === null) {
       return { resource: null };
     }
 
     const { item: apiSpecies } = await PokemonApi.getSpeciesByIdOrName({ id: normalizedId });
+    // This is likely impossible, except for bad coding, but yea, can't do anything w/out a species
     if(apiSpecies === null) {
       return { resource: null };
     }
@@ -23,6 +29,8 @@ class PokemonService {
     const evoUrl = apiSpecies.evolution_chain.url;
     const evoId = evoUrl.split('evolution-chain')[1].replace('/', '');
     const { item: apiEvolutionChain } = await PokemonApi.getEvolutionChainById({ id: evoId });
+    // No evolution, no beuno
+    // Note: pokemon w/ no valid evolutions still have an empty evolution chain
     if(apiEvolutionChain === null) {
       return { resource: null };
     }
@@ -51,6 +59,7 @@ class PokemonService {
       stats, types, moves, sprites, flavorText, abilities, evolution } };
   }
 
+  // Grab 20 pokemon, next url optionally offsets
   async listPokemon(nextUrl: string | null):Promise<ServicePagedResourceResponse<PokemonInfo>> {
     const { next: apiNext, previous: apiPrevious, count, items: apiItems } =
       await PokemonApi.getPokemonlist({ query: nextUrl || null });

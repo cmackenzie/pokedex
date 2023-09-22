@@ -1,5 +1,7 @@
+// The maximum number of digits a pokemon can be e.g. #9999
 export const MAX_DIGITS = 4;
 
+// url template for the official artwork from the api
 export const OFFICIAL_ARTWORK_URL =
   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/[id].png';
 

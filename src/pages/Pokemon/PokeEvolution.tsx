@@ -10,6 +10,10 @@ const NoEvolutionParagraph = styled(styled.p`
   text-align: center;
 `)(spacing);
 
+// Recursively traverses the evolution chain and creates a grid of pokemon.
+// If it finds evolution forks, it forks the parent elements and creates a copy.
+// This in effect creates a chain for each distinct evolution path a pokemon can have.
+// Eevee has like 7 chains.
 const displayEvoChains = (
   gridSize: number,
   workingLinks: React.ReactNode[],
@@ -41,6 +45,8 @@ const displayEvoChains = (
   return evolutionChains;
 };
 
+// Calculates the maximum number of evolutions in a single evolution path a pokemon can have
+// This is necessary so we know how many grid slots to allocate (MaterialUI grid)
 const getEvolutionDepth = (currentDepth: number, evolutions: EvolutionLink[]):number => {
   const results = evolutions.map(evo => 1 + getEvolutionDepth(currentDepth, evo.evolvesTo));
   if(results.length === 0) {
@@ -50,6 +56,7 @@ const getEvolutionDepth = (currentDepth: number, evolutions: EvolutionLink[]):nu
   return Math.max(...results);
 };
 
+// Some pokemon are simply best the way they were born.
 const noChain = <NoEvolutionParagraph p={4}>
   This pokemon is not part of an evolution chain.
 </NoEvolutionParagraph>;

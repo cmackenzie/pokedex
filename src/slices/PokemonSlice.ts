@@ -24,6 +24,9 @@ export interface SetPokemonPayload {
   success: boolean
 }
 
+// The pokemon slice keeps track of the scrollable pokemon in the dashboard view
+// and the visible pokemon on the pokemon view.
+// Most of the selectors in this slice are used to support the infinite scrolling functionality
 const initialState:PokemonState = {
   items: [],
   next: null,
