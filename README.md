@@ -24,6 +24,8 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ## A Tour of Your Pokedex
 
 While your Pokedex runs at any resolution, maximum viewing pleasure is around 800px-1200px. This gives the right amount of information density, and feels like a pocket utility. Large resolutions make it sparse. Smaller resolutions are fine as well.
+![image](https://github.com/cmackenzie/pokedex/assets/453326/844a1c58-2042-4350-b205-f54efa32e197)
+![image](https://github.com/cmackenzie/pokedex/assets/453326/083d761a-fa9a-4ea0-945b-51e04edacc6a)
 
 ### Inspiration
 
@@ -39,31 +41,38 @@ I drew inspiration from these for how a Pokedex should work while putting my own
 ### What you can do (aka Feature City)
 
 #### Endlessly scroll all pokemon until you've seen em all
+![image](https://github.com/cmackenzie/pokedex/assets/453326/08d50876-c958-4109-855f-457236cd02a9)
 
 The main screen of your pokedex allows you to scroll through all pokemon seamlessly, without having to navigate or manually load in.
 
 #### Search for and view a specific pokemon
+![image](https://github.com/cmackenzie/pokedex/assets/453326/8bf2fb81-efd4-4644-be5f-99ffb7d4dcd8)
 
 The search box in the top right of your pokedex allows your to lookup specific pokemon directly. After you've searched them once, their name will remain in your search history (localStorage) indefinitely, so you may reuse previous searches as needed.
 
 #### Review meta data (height/weight/type/abilities) of any pokemon
+![image](https://github.com/cmackenzie/pokedex/assets/453326/90850566-ad3d-41db-a9d0-95ed25fb9b65)
 
 Did you know Charizard isn't even 6 feet tall? One of the several TIL while working on this project.
 Name, number, height, weight growth rate, shape, color, types, and abilities are all available for your viewing pleasure.
 
 #### Review base stats and compare them to min/max for those stats
+![image](https://github.com/cmackenzie/pokedex/assets/453326/0c65470d-cbb1-457c-aebe-3871b2bdb602)
 
 A quick at a glance view of every pokemons base stats gives you an idea of what their floor and ceiling are in terms of power. A useful tool!
 
 #### Review all possible evolution chains
+![image](https://github.com/cmackenzie/pokedex/assets/453326/0bc3b1f2-e14b-4013-bcf0-d321cd9c92bf)
 
 Eevee has evolution options like I have shoe options. How do I even choose? Every possible evolution chain is available for review. Chains that fork (Ralts, Kirlia) create distinct evolution chains for each form. This was done to make it easier to see what you're available discrete paths are for each pokemon. Evolution criteria is listed between the evolved states.
 
 #### Geek out over alternative poke media (sprites)
+![image](https://github.com/cmackenzie/pokedex/assets/453326/5ccde749-c18c-42ad-9b91-ff52e8f460c0)
 
 All of the non-version sprites are available for persual, enjoy!. I removed version sprites because there were so many and I felt it took up too much real-estate (taking my PM hat off now).
 
 #### View a list of learnable moves
+![image](https://github.com/cmackenzie/pokedex/assets/453326/4e59a2e0-9d36-4ee9-996f-4aadbec5cb0b)
 
 You may take a look at all of the available moves for a pokemon. Clicking on a move will take you out to a pokemondb page where you can read what it does. Future iterations of this pokedex would make this data easier to read/search/filter/review. Given the scope of the project I felt this was a reasonable stopping point though.
 
